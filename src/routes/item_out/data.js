@@ -30,7 +30,7 @@ export default function AddData () {
     
     const getDocPreview = async() => {
         try{
-            const response  = await axios.get('http://49.0.65.4:3002/secure/doc/preview');
+            const response  = await axios.get('http://XX.XX.XX.X:XX/secure/doc/preview');
             if (response.data && response.data.length > 0) {
                 setDoc_num(response.data[0].PreviewDocNum);
             } else {
@@ -87,7 +87,7 @@ export default function AddData () {
                 return message.error('กรุณากรอกข้อมูลให้ครบถ้วน');
             }else {
                     setloading(true);
-                    await axios.post('http://49.0.65.4:3002/secure/doc/add', inputData);
+                    await axios.post('http://XX.XX.XX.X:XX/secure/doc/add', inputData);
                     
                     await getDocPreview();
                     //await setCyf_dpt('');
@@ -118,142 +118,6 @@ export default function AddData () {
     };
 
     return (
-        // <div>
-        //     <div style={{display: 'flex',marginTop: '-2%', marginBottom: '-1%', marginLeft: '62.5%'}}>
-        //         <h2>Document : {doc_num}</h2>  
-        //     </div>
-
-        //     <div style={{position: 'absolute', marginLeft: '61%', marginTop: '1.2%', width: '300px'}}>
-        //         <Select
-        //             showSearch
-        //             placeholder="Select"
-        //             onChange={handleChangeCyf_dpt}
-        //             // filterOption={(input, option) =>
-        //             // (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
-        //             // }
-        //             options={[
-        //             {
-        //                 value: 'PUR',
-        //                 label: 'PUR',
-        //             },
-        //             {
-        //                 value: 'Delivery',
-        //                 label: 'Delivery',
-        //             },
-        //             {
-        //                 value: 'etc',
-        //                 label: 'etc',
-        //             },
-        //             ]}
-        //         />
-
-        //     </div>
-
-        //     <div style={{position: 'absolute', marginLeft: '15%', marginTop: '7%', width: '500px'}}>  
-        //         <Input value={name_out} onChange={(e) => setName_out(e.target.value)}></Input>
-        //     </div> 
-
-        //     <div style={{position: 'absolute', marginLeft: '53%', marginTop: '7%'}}>
-        //         <ConfigProvider >
-        //             <Space direction="vertical">
-        //                 <DatePicker showTime onChange={onChangeDatepicker} />
-        //             </Space>
-        //         </ConfigProvider>
-        //     </div>
-
-        //     <div style={{position: 'absolute', marginLeft: '15%', marginTop: '10.05%', width: '500px'}}>  
-        //         <Input value={company} onChange={(e) => setCompany(e.target.value)}></Input>
-        //     </div>
-
-        //     <div style={{ display: 'flex', alignItems: 'center', position: 'absolute', marginTop: '15%', marginLeft: '2%', fontSize: '16px' }}>
-        //         <label style={{ marginRight: '10px' }}>1) ชิ้นงาน</label>
-        //         <Input type="number" value={job_qty} onChange={(e) => setJob_qty(e.target.value)}
-        //                 style={{ width: '100px', height: '25px', marginRight: '10px' }} />
-        //         <label>ชิ้น</label>
-        //     </div>
-
-        //     <div style={{ display: 'flex', alignItems: 'center', position: 'absolute', marginTop: '16.8%', marginLeft: '2%', fontSize: '16px' }}>
-        //         <label style={{ marginRight: '10px' }}>2) ภาชนะบรรจุชิ้นงาน จำนวน</label>
-        //         <Input type="number" value={container_qty} onChange={(e) => setContainer_qty(e.target.value)}
-        //                 style={{ width: '100px', height: '25px', marginRight: '10px' }} />
-        //         <Radio.Group 
-        //             onChange={(e)=> setContainer_um(e.target.value)} 
-        //             value={container_um}>
-        //             <Radio value="กล่อง">กล่อง</Radio>
-        //             <Radio value="RACK">RACK</Radio>
-        //             <Radio value="ตะกร้า/ถัง">ตะกร้า/ถัง</Radio>  
-        //         </Radio.Group>
-        //     </div>
-
-        //     <div style={{ display: 'flex', alignItems: 'center', position: 'absolute', marginTop: '18.6%', marginLeft: '2%', fontSize: '16px' }}>
-        //         <label style={{ marginRight: '10px' }}>3) อุปกรณ์ JIG/GAUGE จำนวน</label>
-        //         <Input type="number" value={tool_qty} onChange={(e) => setTool_qty(e.target.value)}
-        //                 style={{ width: '100px', height: '25px', marginRight: '10px' }} />
-        //         <label>ชิ้น</label>
-        //     </div>
-
-        //     <div style={{ display: 'flex', alignItems: 'center', position: 'absolute', marginTop: '20.4%', marginLeft: '2%', fontSize: '16px' }}>
-        //         <label style={{ marginRight: '10px' }}>4) คอมพิวเตอร์</label>
-        //         <Input type="number" value={computer_qty} onChange={(e) => setComputer_qty(e.target.value)} 
-        //                 style={{ width: '100px', height: '25px', marginRight: '10px' }} />
-        //         <label>เครื่อง</label>
-        //     </div>
-
-        //     <div style={{ display: 'flex', alignItems: 'center', position: 'absolute', marginTop: '22.2%', marginLeft: '2%', fontSize: '14px' }}>
-        //         <label style={{ marginRight: '10px' }}>5) เครื่องมือวัด</label>
-        //         <Input type="number" value={measuringtools_qty} onChange={(e) => setMeasuringtools_qty(e.target.value)}
-        //                 style={{ width: '100px', height: '25px', marginRight: '10px' }} />
-        //         <label>เครื่อง</label>
-        //     </div>
-
-        //     <div style={{ display: 'flex', position: 'absolute', marginTop: '16.5%', marginLeft: '40%', fontSize: '14px' }}>
-        //         <TextArea rows={4} value={etc} onChange={(e) => setEtc(e.target.value)}
-        //                     placeholder="......." 
-        //                     style={{ width: '500px', height: '140px'}}/>
-        //     </div>
-
-        //     <div style={{ display: 'flex', position: 'absolute', marginTop: '24.7%', marginLeft: '14%', fontSize: '14px' }}>
-        //         <Input value={purpose} onChange={(e) => setPurpose(e.target.value)} style={{ width: '1000px'}}></Input>
-        //     </div>
-
-        //     <div style={{ display: 'flex', position: 'absolute', marginTop: '28.6%', marginLeft: '14%', fontSize: '14px' }}>
-        //         <Radio.Group 
-        //             onChange={(e)=> setCar_type(e.target.value)} 
-        //             value={car_type}>
-        //                 <Radio value="รถบรรทุก4ล้อ">รถบรรทุก 4 ล้อ</Radio>
-        //                 <Radio value="รถบรรทุก6ล้อ">รถบรรทุก 6 ล้อ</Radio>
-        //                 <Radio value="รถบรรทุกอื่นๆ">รถบรรทุกอื่นๆ</Radio> 
-        //                 <Radio value="รถส่วนบุคคล">รถส่วนบุคคล</Radio>
-        //                 <Radio value="ตัวบุคคล">ตัวบุคคล</Radio> 
-                   
-        //         </Radio.Group>
-        //     </div>
-
-        //     <div style={{ display: 'flex', position: 'absolute', marginTop: '29.2%', marginLeft: '55.3%', fontSize: '14px' }}>
-        //         <Input value={car_reg} onChange={(e) => setCar_reg(e.target.value)} style={{ width: '200px'}}></Input>
-        //     </div>
-
-        //     <div style={{ display: 'flex', position: 'absolute', marginTop: '33.8%', marginLeft: '55.3%', fontSize: '14px' }}>
-        //         <Input value={cyf_approve} onChange={(e) => setCyf_approve(e.target.value)} style={{ width: '200px'}}></Input>
-        //     </div>
-            
-        //     <div style={{marginTop: '-1.2%'}}>
-        //         <img alt="bg" src="/image/Doc2.jpg" width='1300px' height='700px' /> 
-        //     </div>
-
-        //     <div style={{marginLeft: '74.2%', marginTop: '0.5%'}}>
-        //         <Button type="primary" onClick={savedata}>Save</Button> 
-        //     </div>
-
-        //     <Backdrop 
-        //         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        //         open={loading}
-        //     >
-        //       <CircularProgress color="inherit" />
-        //     </Backdrop>
-            
-        // </div>
-        
         <div>
             <div className='document'>
                 <h2>Document : {doc_num}</h2>  
