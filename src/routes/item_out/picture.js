@@ -32,7 +32,7 @@ export default function Picture () {
     const getDataImage = async () => {
         try{
             setloading(true);
-            const getuser = await axios.get(`http://49.0.65.4:3002/secure/doc/${input_date}`);
+            const getuser = await axios.get(`http://XX.XX.XX.X:XX/secure/doc/${input_date}`);
             const Data = getuser.data.map(item => ({
               ...item,
               doc_num: item.doc_num || '',
@@ -168,10 +168,7 @@ export default function Picture () {
           <Document>
             {await Promise.all(
               data.map(async (item, index) => {
-  
-                // const dateObj = new Date(item.datetime_out);
-                // const date = dateObj.toISOString().split('T')[0]; // Extract date
-                // const time = dateObj.toTimeString().split(' ')[0]; // Extract time
+
                 const datetime = item.datetime_out;
                 const [date, time] = datetime.split('T');
                 const formattedTime = time.split('.')[0];
